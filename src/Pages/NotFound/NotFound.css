@@ -1,0 +1,5 @@
+.background-notfound-page {
+    background: url("/public/images/pexels-iriser.jpg") no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+}

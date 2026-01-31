@@ -1,9 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@font-face {
+  font-family: 'FONTBazi';
+  src: url('Font/Peyda-Medium[@fontbazi].ttf');
+}
 
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'FONTBazi', sans-serif;
   font-style: normal;
   box-sizing: border-box;
 }
