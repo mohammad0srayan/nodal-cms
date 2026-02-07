@@ -1,0 +1,8 @@
+.active {
+    height: 3px;
+    width: 8rem;
+    position: absolute;
+    background: var(--blue);
+    top: 4.3rem;
+    left: 0;
+}

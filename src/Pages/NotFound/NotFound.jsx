@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 export default function NotFound () {
     return (
-        <div className={'background-notfound-page h-screen flex justify-center items-center text-white flex-col gap-[1rem]'}>
+        <div className={'background-notfound-page h-full flex justify-center items-center text-white flex-col gap-[1rem]'}>
             <h1 className={'text-3xl'}>Error 404 |</h1>
             <h2 className={'text-center  text-3xl'}>متاسفانه این صحفه یافت نشد :(</h2>
             <ul className={'flex items-center justify-between gap-[0.5rem] w-[200px]'}>
