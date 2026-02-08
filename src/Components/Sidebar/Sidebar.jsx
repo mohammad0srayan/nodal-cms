@@ -1,7 +1,18 @@
 import './Sidebar.css'
 import {Link} from 'react-router-dom'
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {getCoursesFromServer} from "../../Redux/Store/Courses";
 
 export default function Sidebar() {
+
+    const courses = useSelector(state => state.courses)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getCoursesFromServer('https://redux-cms.iran.liara.run/api/courses'))
+    }, [])
+
     return (
         <>
             <div className="bg-white drop-shadow-xl shadow-black w-[400px] h-full relative pb-[3rem]">
@@ -44,11 +55,12 @@ export default function Sidebar() {
                                     </div>
 
                                     <p className="">
-                                        <span className="text-[1.1rem] text-blue-500">35</span>
+                                        <span className="text-[1.1rem] text-blue-500">{courses.length}</span>
                                     </p>
                                 </li>
                             </ul>
-                            <Link to={'/infos'} className="mt-[1rem] flex items-center justify-center gap-[0.5rem] w-full h-[3.5rem] hover:bg-blue-500 hover:shadow-blue-500 duration-300 ease-in-out bg-[#0d6efd] text-white shadow-[#0d6efd] shadow-md">
+                            <Link to={'/infos'}
+                                  className="mt-[1rem] flex items-center justify-center gap-[0.5rem] w-full h-[3.5rem] hover:bg-blue-500 hover:shadow-blue-500 duration-300 ease-in-out bg-[#0d6efd] text-white shadow-[#0d6efd] shadow-md">
                                 تغییر اطلاعات
                                 <span className="text-2xl fa fa-pencil"></span>
                             </Link>

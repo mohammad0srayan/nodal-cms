@@ -1,17 +1,29 @@
 import './Users.css'
 import Menu from "../../Components/Menu/Menu";
 import UserItem from "../../Components/UserItem/UserItem";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getUsersFromServer} from "../../Redux/Store/Users";
+import {getUsersFromServer, removeUsersFromServer} from "../../Redux/Store/Users";
+import swal from 'sweetalert'
 
 export default function Users() {
+    const [password, setPassword] = useState("");
     const users = useSelector(state => state.users);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getUsersFromServer('https://redux-cms.iran.liara.run/api/users/'))
     }, [])
+
+    const removeUserFromInp = () => {
+        dispatch(removeUsersFromServer(`https://redux-cms.iran.liara.run/api/users/${password}`))
+        swal({
+            icon: "success",
+            title: "کاربر با موفقیت حذف شد",
+            buttons: "OK"
+        })
+        setPassword('')
+    }
 
     return (
         <>
@@ -26,12 +38,15 @@ export default function Users() {
                             type="search"
                             name=""
                             id="search"
-                            placeholder="نام یا ایمیل کاربر را وارد کنید"
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="آیدی کاربر را جهت حذف وارد کنید"
+                            value={password}
                             className="w-full border-black/20 pr-[2.5rem] px-[1rem] border-[1px] py-[1rem] rounded-[10px] shadow-black drop-shadow-md"
                             required
                         />
                     </div>
                     <button type="reset"
+                            onClick={removeUserFromInp}
                             className="w-[250px] py-[1rem] bg-[#133141] shadow-[#133141] shadow-md hover:bg-gray-400 hover:shadow-gray-400 duration-200 ease-in-out text-white">
                         حذف کاربر
                     </button>

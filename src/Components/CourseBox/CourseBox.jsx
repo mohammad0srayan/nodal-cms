@@ -3,7 +3,7 @@ import swal from "sweetalert";
 import {removeArticlesFromServer} from "../../Redux/Store/Articles";
 import {useDispatch} from "react-redux";
 
-export default function CourseBox({title, price, category, desc, registersCount, discount, _id }) {
+export default function CourseBox({title, price, category, desc, registersCount, discount, _id}) {
     const dispatch = useDispatch();
 
     const removeCourseFromList = (courseID) => {
@@ -25,6 +25,7 @@ export default function CourseBox({title, price, category, desc, registersCount,
     }
 
     return (
+        <>
             <div className="products__item">
                 <img
                     src="/images/store/redux.png"
@@ -43,7 +44,8 @@ export default function CourseBox({title, price, category, desc, registersCount,
                                 <span className="fa fa-wallet"></span>
 
                                 <span className="product__teg-text">قیمت :</span>
-                                <span className="product__teg-text products__price-value">{price === 0 ? 'رایگان' : price.toLocaleString()}</span>
+                                <span
+                                    className="product__teg-text products__price-value">{price === 0 ? 'رایگان' : price?.toLocaleString()}</span>
                             </div>
                             <div className="products__category-box flex gap-[0.2rem]">
                                 <span className="fa fa-folder"></span>
@@ -59,7 +61,8 @@ export default function CourseBox({title, price, category, desc, registersCount,
                             </div>
                         </div>
                         <div className="products__btns flex gap-[0.5rem]">
-                            <button onClick={() => removeCourseFromList(_id)} className="btn btn-danger btn-lg">حذف</button>
+                            <button onClick={() => removeCourseFromList(_id)} className="btn btn-danger btn-lg">حذف
+                            </button>
                             <button className="btn btn-info btn-lg">ویرایش</button>
                         </div>
                     </div>
@@ -67,5 +70,6 @@ export default function CourseBox({title, price, category, desc, registersCount,
 
                 <div className="product__discount-Box">{discount}%</div>
             </div>
-        )
+        </>
+    )
 }

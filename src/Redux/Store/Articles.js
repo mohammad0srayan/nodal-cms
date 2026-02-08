@@ -17,6 +17,23 @@ export const removeArticlesFromServer = createAsyncThunk('articles/removeArticle
         .then(data => data)
 });
 
+export const createArticleFromServer = createAsyncThunk('articles/createArticleFromServer', async ({url, title, category, views, desc }) => {
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            title,
+            category,
+            views,
+            desc
+        })
+    })
+        .then(res => res.json())
+        .then(data => data)
+});
+
 const slice = createSlice({
     name: "articles",
     initialState: [],
@@ -24,11 +41,14 @@ const slice = createSlice({
         createArticle: (state, action) => {}
     },
     extraReducers: (builder) => {
-        builder.addCase(getArticlesFromServer.fulfilled, (state, action) => action.payload)
+        builder.addCase(getArticlesFromServer.fulfilled, (state, action) => {
+            return action.payload
+        })
+        builder.addCase(createArticleFromServer.fulfilled, (state, action) => {
+            state.push(action.payload)
+        })
         builder.addCase(removeArticlesFromServer.fulfilled, (state, action) => {
-            const newState = state.filter(article => article._id !== action.payload.id)
-
-            return newState
+            return state.filter(article => article._id !== action.payload.id)
         })
     }
 })

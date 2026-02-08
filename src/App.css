@@ -366,9 +366,20 @@
 }
 
 /* MODAL  */
-.modal {
+.open-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
     -webkit-backdrop-filter: blur(5px) brightness(50%);
     backdrop-filter: blur(5px) brightness(30%);
+}
+
+.show-modal {
+    display: block;
 }
 
 .modal-content {

@@ -1,8 +1,17 @@
 import './Infos.css'
 import Menu from "../../Components/Menu/Menu";
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 export default function Infos() {
+    const [firstname, setFirstname] = useState("")
+    const [lastname, setLastname] = useState("")
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [newPassword, setNewPassword] = useState("")
+    const [requiredPassword, setRequiredPassword] = useState("")
+
     return (
         <>
             <Menu/>
@@ -28,7 +37,8 @@ export default function Infos() {
                                                 <input
                                                     type="text"
                                                     name=""
-                                                    value=""
+                                                    value={firstname}
+                                                    onChange={(e) => setFirstname(e.target.value)}
                                                     id="firstname"
                                                     placeholder="نام "
                                                     className="w-full py-[0.9rem] px-[2.3rem] placeholder:text-black border-[1px] border-black/40 rounded-md shadow-sm shadow-black/40 validation-form-error"
@@ -43,7 +53,8 @@ export default function Infos() {
                                                 <input
                                                     type="text"
                                                     name=""
-                                                    value=""
+                                                    value={lastname}
+                                                    onChange={(e) => setLastname(e.target.value)}
                                                     id="lastname"
                                                     placeholder="نام خانوادگی"
                                                     className="w-full py-[0.9rem] px-[2.3rem] placeholder:text-black border-[1px] border-black/40 rounded-md shadow-sm shadow-black/40 validation-form-error"
@@ -59,7 +70,8 @@ export default function Infos() {
                                                     lang="en"
                                                     type="text"
                                                     name=""
-                                                    value=""
+                                                    value={username}
+                                                    onChange={(e) => setUsername(e.target.value)}
                                                     id="username"
                                                     placeholder="نام کاربری"
                                                     className="w-full py-[0.9rem] px-[2.3rem] placeholder:text-black border-[1px] border-black/40 rounded-md shadow-sm shadow-black/40 validation-form-error"
@@ -75,7 +87,8 @@ export default function Infos() {
                                                     lang="en"
                                                     type="email"
                                                     name=""
-                                                    value=""
+                                                    value={'mohammadsrayan011@gmail.com'}
+                                                    onChange={(e) => setEmail(e.target.value)}
                                                     id="email"
                                                     placeholder="email "
                                                     className="w-full py-[0.9rem] px-[2.3rem] placeholder:text-black border-[1px] border-black/40 rounded-md shadow-sm shadow-black/40 validation-form-error"
@@ -93,6 +106,8 @@ export default function Infos() {
                                                     type="password"
                                                     name=""
                                                     id="password"
+                                                    value={password}
+                                                    onChange={(e) => setPassword(e.target.value)}
                                                     placeholder="رمز جاری"
                                                     className="w-full py-[0.9rem] px-[2.3rem] placeholder:text-black border-[1px] border-black/40 rounded-md shadow-sm shadow-black/40 validation-form-error"
                                                     required
@@ -107,6 +122,8 @@ export default function Infos() {
                                                     type="password"
                                                     name=""
                                                     id="password"
+                                                    value={newPassword}
+                                                    onChange={(e) => setNewPassword(e.target.value)}
                                                     placeholder="رمز  جدید"
                                                     className="w-full py-[0.9rem] px-[2.3rem] placeholder:text-black border-[1px] border-black/40 rounded-md shadow-sm shadow-black/40 validation-form-error"
                                                     required
@@ -118,6 +135,8 @@ export default function Infos() {
                                                     type="password"
                                                     name=""
                                                     id="password"
+                                                    value={requiredPassword}
+                                                    onChange={(e) => setRequiredPassword(e.target.value)}
                                                     placeholder="تکرار رمز"
                                                     className="w-full py-[0.9rem] px-[2.3rem] placeholder:text-black border-[1px] border-black/40 rounded-md shadow-sm shadow-black/40 validation-form-error"
                                                     required
