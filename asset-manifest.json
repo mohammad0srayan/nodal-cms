@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/nodal-cms/static/css/main.e706bc33.css",
-    "main.js": "/nodal-cms/static/js/main.ce486a2a.js",
+    "main.js": "/nodal-cms/static/js/main.a93eeafc.js",
     "static/js/453.5548fa82.chunk.js": "/nodal-cms/static/js/453.5548fa82.chunk.js",
     "static/media/pexels-iriser.jpg": "/nodal-cms/static/media/pexels-iriser.d78e404317ea113a43a6.jpg",
     "static/media/Peyda-Medium[@fontbazi].ttf": "/nodal-cms/static/media/Peyda-Medium[@fontbazi].5096aff1eb4d5054ae68.ttf",
     "index.html": "/nodal-cms/index.html",
     "main.e706bc33.css.map": "/nodal-cms/static/css/main.e706bc33.css.map",
-    "main.ce486a2a.js.map": "/nodal-cms/static/js/main.ce486a2a.js.map",
+    "main.a93eeafc.js.map": "/nodal-cms/static/js/main.a93eeafc.js.map",
     "453.5548fa82.chunk.js.map": "/nodal-cms/static/js/453.5548fa82.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e706bc33.css",
-    "static/js/main.ce486a2a.js"
+    "static/js/main.a93eeafc.js"
   ]
 }
